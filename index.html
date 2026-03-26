@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>St Mary's Girls Primary School – Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="school-name">ST MARY'S GIRLS PRIMARY SCHOOL</div>
+
+    <!-- CHOOSE LOGIN TYPE -->
+    <div class="container" id="chooseSection">
+        <h2>Choose Login</h2>
+        <button onclick="showLogin('student')">Student Login</button>
+        <button onclick="showLogin('admin')">Administrator Login</button>
+    </div>
+
+    <!-- STUDENT LOGIN -->
+    <div class="container" id="studentLogin">
+        <h2>Student Login</h2>
+        <input id="studentName" placeholder="Full Name">
+        <input id="admission" placeholder="Admission Number">
+        <select id="studentClass">
+            <option value="">Select Class</option>
+            <option>Grade 1</option>
+            <option>Grade 2</option>
+            <option>Grade 3</option>
+            <option>Grade 4</option>
+            <option>Grade 5</option>
+            <option>Grade 6</option>
+            <option>Grade 7</option>
+            <option>Grade 8</option>
+            <option>Grade 9</option>
+        </select>
+        <input id="studentPassword" type="password" placeholder="Password">
+        <button onclick="studentLogin()">Login</button>
+    </div>
+
+    <!-- ADMIN LOGIN -->
+    <div class="container" id="adminLogin">
+        <h2>Administrator Login</h2>
+        <input id="adminUser" placeholder="Username">
+        <input id="adminPassword" type="password" placeholder="Password">
+        <button onclick="adminLogin()">Login</button>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <button onclick="showSection('subjects')">Subjects</button>
+        <button onclick="showSection('rules')">Rules</button>
+        <button onclick="showSection('quiz')">Quiz</button>
+        <button onclick="showSection('adminPanel')">Admin Panel</button>
+        <button onclick="logout()">Logout</button>
+    </nav>
+
+    <!-- STUDENT SECTIONS -->
+    <div class="section" id="subjects">
+        <div class="container">
+            <h2>Select Subject</h2>
+            <select id="subject">
+                <option value="Mathematics">Mathematics (30 mins)</option>
+                <option value="English">English</option>
+                <option value="Kiswahili">Kiswahili</option>
+                <option value="Science & Technology">Science & Technology</option>
+                <option value="Social Studies">Social Studies</option>
+                <option value="CRE">CRE</option>
+                <option value="Creative Arts">Creative Arts</option>
+                <option value="Physical Education">Physical Education</option>
+            </select>
+            <button onclick="startQuiz()">Start Quiz</button>
+        </div>
+    </div>
+
+    <div class="section" id="quiz">
+        <div class="container">
+            <div class="timer" id="timer"></div>
+            <h2 id="quizTitle"></h2>
+            <form id="quizForm"></form>
+            <button onclick="submitQuiz()">Submit</button>
+        </div>
+    </div>
+
+    <div class="section" id="rules">
+        <div class="container">
+            <h2>Assessment Rules</h2>
+            <ol>
+                <li>Use correct name and admission number</li>
+                <li>Attempt once only</li>
+                <li>No cheating or switching tabs</li>
+                <li>Submit before time ends</li>
+                <li>Teacher’s decision is final</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div class="section" id="adminPanel">
+        <div class="container">
+            <h2>Administrator Panel</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Admission</th>
+                        <th>Class</th>
+                        <th>Subject</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="adminTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script type="module" src="firebase.js"></script>
+    <!-- Main JS -->
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
